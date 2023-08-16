@@ -17,6 +17,11 @@
 .account-item {
     display: flex;
     padding: 8px;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        border-radius: 4px;
+    }
 }
 
 .avatar {

@@ -10,8 +10,8 @@ import {
     faCoins,
     faGear,
     faSignOut,
+    faMoon,
 } from '@fortawesome/free-solid-svg-icons';
-
 //Lỗi thư viện này sẽ giúp ta hover 1 lần và hiển thị mãi mãi luôn
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -198,11 +198,16 @@ function Header({ toggleSwitchPageContent }) {
             title: 'Get coins',
             to: '/coins',
         },
+
         {
             icon: <FontAwesomeIcon icon={faGear} />,
             title: 'Settings',
         },
         ...MENU_ITEMS,
+        {
+            icon: <FontAwesomeIcon icon={faMoon} />,
+            title: 'Dark mode',
+        },
         {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log out',

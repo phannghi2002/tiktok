@@ -1,4 +1,21 @@
 .wrapper {
     width: 356px;
+    height: 700px;
     padding: 20px 0 26px 0;
+    position: fixed;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        border-radius: 0;
+        width: 4px;
+        height: 100px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background-color: rgba(21, 23, 34, 0.06);
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 0;
+        background-color: rgba(0, 0, 0, 0);
+    }
 }

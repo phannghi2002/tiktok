@@ -82,15 +82,3 @@ a[href] {
     src: url('/assets/fonts/TikTokDisplayFont-Semibold.woff2');
     font-weight: 600;
 }
-
-input *::-webkit-slider-thumb {
-    /* removing default appearance */
-    -webkit-appearance: none !important;
-    appearance: none !important;
-    /* creating a custom design */
-    height: 50px;
-    width: 50px;
-    background-color: rgb(227, 241, 22) !important;
-    border-radius: 50%;
-    border: 2px solid #f50;
-}

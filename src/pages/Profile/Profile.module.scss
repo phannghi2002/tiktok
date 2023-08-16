@@ -65,6 +65,7 @@
     width: 80%;
     height: 40px;
     display: flex;
+    position: relative;
 }
 .video_tab_item {
     display: flex;
@@ -72,6 +73,45 @@
     justify-content: center;
     align-items: center;
 }
+
+.opacity {
+    opacity: 0.5;
+}
+.scroll_bar {
+    bottom: 0;
+    height: 2px;
+    background: rgb(22, 24, 35);
+    width: 50%;
+    position: absolute;
+}
+@keyframes scrollAnimationLeftToRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(308px);
+    }
+}
+
+@keyframes scrollAnimationRightToLeft {
+    0% {
+        transform: translateX(308px);
+    }
+    1000% {
+        transform: translateX(0);
+    }
+}
+
+.no_active:hover + .scroll_bar {
+    animation: scrollAnimationLeftToRight 0.5s forwards;
+}
+
+.no_active:not(:hover) + .scroll_bar {
+    animation: scrollAnimationRightToLeft 0.5s forwards;
+    // forwards giúp nó đứng yên sau khi dùng animation đổi vị trí
+    // backwards giúp nó quay về vị trí ban đầu sau khi dùng animation đổi vị trí
+}
+
 .icon_share,
 .icon_play {
     margin-right: 8px;
@@ -122,4 +162,38 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+}
+
+//Private
+
+.private {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.icon_private {
+    height: 90px;
+    width: 90px;
+    font-size: 60px;
+    color: #d7d8de;
+    text-align: center;
+    line-height: 90px;
+}
+.title {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    color: rgb(22, 24, 35);
+    margin-top: 24px;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 0.03px;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.75);
+    margin-top: 8px;
 }
