@@ -1,0 +1,83 @@
+.wrapper {
+    font-size: 1.6rem;
+    font-family: 'TikTokDisplayFont', sans-serif;
+    font-weight: 600;
+    min-width: 100px;
+    padding: 9px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--white);
+    border: 1px solid transparent;
+
+    + .wrapper {
+        margin-left: 12px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+        user-select: none;
+    } //viết cách & . như thế này sẽ không ăn và đưa nó vào đây để được ưu tiên nếu có nhiều loại types
+}
+
+//Button type
+
+//Nếu cùng xuất hiện các loại type thì trong file css cái nào xuất hiện sau thì được thực hiện ưu tiên hiển thị
+
+.rounded {
+    border-radius: 999px;
+    color: rgba(92, 100, 150, 0.75);
+    font-weight: 700;
+    border-color: rgba(22, 24, 35, 0.12);
+    background-color: rgba(255, 255, 255, 1);
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+
+.primary {
+    background-color: rgba(254, 44, 85, 1);
+    color: var(--white);
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+    }
+}
+
+.outline {
+    color: var(--primary);
+    border-color: currentColor;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+//Icon
+
+.title + .icon,
+.icon + .title {
+    margin-left: 10px;
+}
+
+// .icon {
+//     width: 50px;
+// }
+//Button sizes
+
+.small {
+    min-width: 88px;
+    padding: 4px 16px;
+}
+
+.large {
+    min-width: 148px;
+    padding: 14px 16px;
+}

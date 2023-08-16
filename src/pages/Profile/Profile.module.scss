@@ -1,0 +1,125 @@
+.account {
+    width: 80%;
+    height: 250px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+.container {
+    width: 100%;
+    height: 116px;
+    display: flex;
+}
+.avatar {
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+}
+.check {
+    font-size: 1.4rem;
+    margin-left: 4px;
+    color: rgb(170, 170, 221);
+}
+.info {
+    margin-left: 20px;
+    width: 208px;
+    height: 116px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.user_name {
+    font-size: 3.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 116px;
+    font-size: 3rem;
+}
+
+.account_info {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 20px;
+}
+.account_title {
+    margin-top: 20px;
+}
+
+//Video
+.videos {
+    margin-left: 30px;
+    width: 100%;
+    height: 300px;
+}
+.video_tab {
+    width: 80%;
+    height: 40px;
+    display: flex;
+}
+.video_tab_item {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+.icon_share,
+.icon_play {
+    margin-right: 8px;
+}
+
+.video_list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.video_item {
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+}
+.video_wrapper {
+    width: 100%;
+    height: 320px;
+    position: relative;
+    width: calc(25% - 10px);
+
+    & + & {
+        margin-left: 10px;
+        margin-bottom: 16px;
+    }
+    &:nth-child(4n + 1) {
+        margin-left: 0; /* Remove left margin for the first video in each row */
+    }
+}
+.video_views {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    color: white;
+}
+.video_description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+
+    //show 1 line but more then show ...
+    line-height: 1.6rem;
+    height: 1.6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}

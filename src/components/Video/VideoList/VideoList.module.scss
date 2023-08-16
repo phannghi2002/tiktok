@@ -1,0 +1,23 @@
+.wrapper {
+    width: 100%;
+}
+.content {
+    display: flex;
+    flex: 1;
+    margin: 12px;
+}
+.field_avatar {
+    width: 50px;
+    margin: 0 12px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.video {
+    min-height: 600px;
+    width: 330px;
+}
