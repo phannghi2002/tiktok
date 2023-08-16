@@ -193,7 +193,6 @@ function VideoItem({ video }) {
             setPreVolume(volume);
             setVolume(0);
         }
-        // setVolume(volume !== 0 ? 0 : volume);
     };
 
     return (
