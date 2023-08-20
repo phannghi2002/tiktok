@@ -1,0 +1,108 @@
+.modal {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    //create horizontal scroll
+    overflow-y: auto;
+}
+.header {
+    width: 375px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+}
+.option {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+.option_button {
+    position: relative;
+    width: 375px;
+    height: 44px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+
+    & + & {
+        margin-top: 16px;
+    }
+}
+.icon_qr {
+    width: 20px;
+    height: 100%;
+    font-size: 1.8rem;
+    display: flex;
+    margin: 0 12px;
+    position: absolute;
+    left: 12px;
+    align-items: center;
+}
+.policy {
+    position: absolute;
+    bottom: 74px;
+    width: 483px;
+    height: 78px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.policy_confirm {
+    width: 375px;
+    padding: 16px 30px;
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 483px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+}
+.register {
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    //add important because file global add a[href] have color: black
+    color: rgb(254, 44, 85) !important;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

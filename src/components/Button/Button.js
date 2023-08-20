@@ -2,6 +2,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
+import { memo } from 'react';
+
+import { useContext } from 'react';
+import { LogoutContext } from '~/layouts/components/Header';
 
 const cx = classNames.bind(styles);
 
@@ -21,6 +25,7 @@ function Button({
     leftIcon,
     rightIcon,
     onClick,
+    // onClick2,
     ...passProps
 }) {
     let Comp = 'button';
@@ -55,11 +60,30 @@ function Button({
         medium,
         large,
     });
+
+    const logout = useContext(LogoutContext);
+    // console.log(logout);
+
+    const handleClick = () => {
+        if (children === 'Log out') logout.handleLogout();
+        else if (children === 'View profile') {
+            logout.handleClickImage();
+            console.log('ngu l');
+        }
+    };
+
     return (
         <Comp className={classes} {...props}>
             {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
             {/* toán tử && xem lại trong JS  */}
-            <span className={cx('title')}>{children}</span>
+            <span
+                className={cx('title')}
+                // onClick={children === 'Log out' ? logout.handleLogout : () => {}}
+
+                onClick={handleClick}
+            >
+                {children}
+            </span>
             {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
         </Comp>
     );
@@ -83,4 +107,4 @@ Button.propTypes = {
     onClick: PropTypes.func,
 };
 
-export default Button;
+export default memo(Button);

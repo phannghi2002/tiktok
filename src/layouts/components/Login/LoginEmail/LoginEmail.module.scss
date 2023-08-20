@@ -1,0 +1,103 @@
+.container {
+    width: 375px;
+    height: 285.5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.icon_back {
+    position: absolute;
+    top: -44px;
+    left: -34px;
+    padding: 4px 8px;
+    font-size: 1.8rem;
+}
+.title {
+    width: 100%;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+}
+.form {
+    width: 100%;
+    height: 48px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.description {
+    color: rgb(22, 24, 35);
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 5px;
+    height: 22.5px;
+    line-height: 22.5px;
+}
+.input {
+    width: 375px;
+    height: 44px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: rgba(22, 24, 35, 0.06);
+    color: rgb(22, 24, 35);
+    padding-left: 12px;
+    margin-bottom: 9px;
+    outline: none;
+}
+
+.icon {
+    position: absolute;
+    top: 94px;
+    right: 10px;
+}
+.link {
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 600;
+    font-size: 12px;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.login {
+    width: 100%;
+    height: 46px;
+    margin-top: 21px;
+    color: rgba(22, 24, 35, 0.44);
+    background-color: rgba(22, 24, 35, 0.06);
+    // pointer-events: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.active {
+    color: rgb(255, 255, 255);
+    background-color: rgb(254, 44, 85);
+    border-radius: 4px;
+}
+.notify_error {
+    color: red;
+    font-size: 1.4rem;
+}
+.login_success {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: rgb(100, 85, 85);
+    color: white;
+}
