@@ -68,6 +68,7 @@ function Button({
         if (children === 'Log out') logout.handleLogout();
         else if (children === 'View profile') {
             logout.handleClickImage();
+            logout.toggleSwitchPage();
             console.log('ngu l');
         }
     };

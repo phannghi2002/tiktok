@@ -11,11 +11,11 @@ const cx = classNames.bind(styles);
 
 export const SwitchPageContext = createContext();
 
-function DefaultLayout({ children }) {
+function DefaultLayout({ children, loginDataPush }) {
     //console.log(switchPage);
     const [switchPage, setSwitchPage] = useState(true);
     const toggleSwitchPage = () => {
-        //console.log('ao nhi');
+        console.log('ao nhi');
         setSwitchPage(false);
     };
 
@@ -23,15 +23,24 @@ function DefaultLayout({ children }) {
         setSwitchPage(true);
     };
     // console.log(switchPage);
+    const [dataLogin, setDaTaLogin] = useState('');
+
+    const callbackFunction = (childData) => {
+        setDaTaLogin(childData);
+    };
     return (
         <div className={cx('wrapper')}>
-            <Header toggleSwitchPageContent={toggleSwitchPageContent} />
+            <Header
+                toggleSwitchPageContent={toggleSwitchPageContent}
+                toggleSwitchPage={toggleSwitchPage}
+                parentCallback={callbackFunction}
+            />
 
             <div className={cx('container')}>
                 <SwitchPageContext.Provider value={toggleSwitchPage}>
                     <Sidebar />
 
-                    <div className={cx('content')}>{switchPage ? <Content /> : <Profile />}</div>
+                    <div className={cx('content')}>{switchPage ? <Content /> : <Profile dataImage={dataLogin} />}</div>
                 </SwitchPageContext.Provider>
             </div>
         </div>

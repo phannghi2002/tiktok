@@ -31,7 +31,7 @@ const Image = forwardRef(
                 alt={alt}
                 {...props}
                 onError={handleError}
-                onClick={onClickImage}
+                // onClick={onClickImage}
             />
         );
         // onError là một hàm được thực thi vì img là element chứ không phải là component

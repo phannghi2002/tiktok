@@ -12,6 +12,12 @@ const cx = classNames.bind(styles);
 
 function Profile({ dataImage }) {
     console.log('yamate cudasai');
+    console.log(dataImage);
+
+    // const [videoMyProfile, setVideoMyProfile] = useState(false);
+
+    // dataImage.videos ? setVideoMyProfile(true) : setVideoMyProfile(false);
+
     const location = useLocation();
 
     const [activeIndex, setActiveIndex] = useState(null);
@@ -57,6 +63,7 @@ function Profile({ dataImage }) {
     if (location.state && location.state.data) {
         const data = location.state.data;
         console.log('roi xong');
+        console.log(data);
 
         return (
             <>
@@ -167,117 +174,114 @@ function Profile({ dataImage }) {
         );
     }
 
-    // if (dataImage) {
-    //     console.log('chết chưa');
-    //     return (
-    //         <>
-    //             <div className={cx('account')}>
-    //                 <div className={cx('container')}>
-    //                     <Image className={cx('avatar')} src={dataImage.data.avatar} alt={dataImage.data.nickname} />
+    if (dataImage) {
+        return (
+            <>
+                <div className={cx('account')}>
+                    <div className={cx('container')}>
+                        <Image className={cx('avatar')} src={dataImage.avatar} alt={dataImage.nickname} />
 
-    //                     <div className={cx('info')}>
-    //                         <h2 className={cx('user_name')}>
-    //                             {dataImage.data.nickname}
-    //                             {dataImage.data.tick && (
-    //                                 <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
-    //                             )}
-    //                         </h2>
-    //                         <p>{dataImage.data.first_name + ' ' + dataImage.data.last_name}</p>
-    //                         <Button primary> Follow</Button>
-    //                     </div>
-    //                     <div className={cx('icon')}>
-    //                         <FontAwesomeIcon className={cx('icon_share')} icon={faShare} />
-    //                         <FontAwesomeIcon className={cx('icon_share')} icon={faEllipsis} />
-    //                     </div>
-    //                 </div>
+                        <div className={cx('info')}>
+                            <h2 className={cx('user_name')}>
+                                {dataImage.nickname}
+                                {dataImage.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
+                            </h2>
+                            <p>{dataImage.first_name + ' ' + dataImage.last_name}</p>
+                            <Button primary> Follow</Button>
+                        </div>
+                        <div className={cx('icon')}>
+                            <FontAwesomeIcon className={cx('icon_share')} icon={faShare} />
+                            <FontAwesomeIcon className={cx('icon_share')} icon={faEllipsis} />
+                        </div>
+                    </div>
 
-    //                 <div className={cx('account_info')}>
-    //                     <div>
-    //                         <strong>{dataImage.data.followings_count}</strong>
-    //                         <span> Đang follow</span>
-    //                     </div>
+                    <div className={cx('account_info')}>
+                        <div>
+                            <strong>{dataImage.followings_count}</strong>
+                            <span> Đang follow</span>
+                        </div>
 
-    //                     <div>
-    //                         <strong>{dataImage.data.followers_count}</strong>
-    //                         <span> Follower</span>
-    //                     </div>
+                        <div>
+                            <strong>{dataImage.followers_count}</strong>
+                            <span> Follower</span>
+                        </div>
 
-    //                     <div>
-    //                         <strong>{dataImage.data.likes_count}</strong>
-    //                         <span> Thích</span>
-    //                     </div>
-    //                 </div>
+                        <div>
+                            <strong>{dataImage.likes_count}</strong>
+                            <span> Thích</span>
+                        </div>
+                    </div>
 
-    //                 <div className={cx('account_title')}>
-    //                     <div>{dataImage.data.bio}</div>
-    //                 </div>
-    //             </div>
+                    <div className={cx('account_title')}>
+                        <div>{dataImage.bio}</div>
+                    </div>
+                </div>
 
-    //             <div className={cx('videos')}>
-    //                 <div className={cx('video_tab')}>
-    //                     <span
-    //                         className={cx(
-    //                             'video_tab_item',
-    //                             // , { active: activeItem === 0 }
-    //                             { opacity: !opacity },
-    //                         )}
-    //                         // onMouseEnter={() => handleHover(0)}
-    //                         // onMouseLeave={() => handleHover(0)}
-    //                         onClick={handleClickVideo}
-    //                     >
-    //                         Video
-    //                     </span>
-    //                     <span
-    //                         className={cx(
-    //                             'video_tab_item',
-    //                             // , { active: activeItem === 1 }
-    //                             'no_active',
-    //                             { opacity: opacity },
-    //                         )}
-    //                         onClick={handleClickLike}
-    //                     >
-    //                         <FontAwesomeIcon className={cx('icon_share')} icon={faLock} />
-    //                         Đã thích
-    //                     </span>
+                <div className={cx('videos')}>
+                    <div className={cx('video_tab')}>
+                        <span
+                            className={cx(
+                                'video_tab_item',
+                                // , { active: activeItem === 0 }
+                                { opacity: !opacity },
+                            )}
+                            // onMouseEnter={() => handleHover(0)}
+                            // onMouseLeave={() => handleHover(0)}
+                            onClick={handleClickVideo}
+                        >
+                            Video
+                        </span>
+                        <span
+                            className={cx(
+                                'video_tab_item',
+                                // , { active: activeItem === 1 }
+                                'no_active',
+                                { opacity: opacity },
+                            )}
+                            onClick={handleClickLike}
+                        >
+                            <FontAwesomeIcon className={cx('icon_share')} icon={faLock} />
+                            Đã thích
+                        </span>
 
-    //                     <div className={cx('scroll_bar')}></div>
-    //                 </div>
-    //                 {!like && (
-    //                     <div className={cx('video_list')}>
-    //                         {dataImage.data.videos.map((video, index) => (
-    //                             <div className={cx('video_wrapper')} key={video.id}>
-    //                                 <video
-    //                                     className={cx('video_item')}
-    //                                     src={video.file_url}
-    //                                     muted
-    //                                     loop
-    //                                     ref={(ref) => (videoRefs.current[index] = ref)}
-    //                                     onMouseEnter={() => handleMouseEnter(index)}
-    //                                     onMouseLeave={() => handleMouseLeave(index)}
-    //                                 />
-    //                                 <span className={cx('video_views')}>
-    //                                     <FontAwesomeIcon className={cx('icon_play')} icon={faPlay} />
-    //                                     {video.views_count}
-    //                                 </span>
+                        <div className={cx('scroll_bar')}></div>
+                    </div>
+                    {!like && dataImage.videos && (
+                        <div className={cx('video_list')}>
+                            {dataImage.videos.map((video, index) => (
+                                <div className={cx('video_wrapper')} key={video.id}>
+                                    <video
+                                        className={cx('video_item')}
+                                        src={video.file_url}
+                                        muted
+                                        loop
+                                        ref={(ref) => (videoRefs.current[index] = ref)}
+                                        onMouseEnter={() => handleMouseEnter(index)}
+                                        onMouseLeave={() => handleMouseLeave(index)}
+                                    />
+                                    <span className={cx('video_views')}>
+                                        <FontAwesomeIcon className={cx('icon_play')} icon={faPlay} />
+                                        {video.views_count}
+                                    </span>
 
-    //                                 <span className={cx('video_description')}>{video.description}</span>
-    //                             </div>
-    //                         ))}
-    //                     </div>
-    //                 )}
+                                    <span className={cx('video_description')}>{video.description}</span>
+                                </div>
+                            ))}
+                        </div>
+                    )}
 
-    //                 {like && (
-    //                     <div className={cx('private')}>
-    //                         <div className={cx('icon_private')}>
-    //                             <FontAwesomeIcon icon={faLock} />
-    //                         </div>
-    //                         <h2 className={cx('title')}>This user's liked videos are private</h2>
-    //                         <p className={cx('description')}>Videos liked by gavintoeic are currently hidden</p>
-    //                     </div>
-    //                 )}
-    //             </div>
-    //         </>
-    //     );
-    // }
+                    {like && (
+                        <div className={cx('private')}>
+                            <div className={cx('icon_private')}>
+                                <FontAwesomeIcon icon={faLock} />
+                            </div>
+                            <h2 className={cx('title')}>This user's liked videos are private</h2>
+                            <p className={cx('description')}>Videos liked by gavintoeic are currently hidden</p>
+                        </div>
+                    )}
+                </div>
+            </>
+        );
+    }
 }
 export default Profile;

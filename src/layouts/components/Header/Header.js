@@ -180,7 +180,7 @@ const MENU_ITEMS = [
     },
 ];
 
-function Header({ toggleSwitchPageContent }) {
+function Header({ toggleSwitchPageContent, toggleSwitchPage, parentCallback }) {
     //Handle logic
     // console.log(toggleSwitchPageContent);
     // const handleMenuChange = (menuItem) => {
@@ -213,7 +213,7 @@ function Header({ toggleSwitchPageContent }) {
         {
             icon: <FontAwesomeIcon icon={faUser} />,
             title: 'View profile',
-            to: '/profiles',
+            to: '/profile67',
         },
         {
             icon: <FontAwesomeIcon icon={faCoins} />,
@@ -256,31 +256,28 @@ function Header({ toggleSwitchPageContent }) {
 
     //Get data in login
     const [loginData, setLoginData] = useState(null);
-    <Routes>
-        <Route path="/profile67" element={<Profile />} />
-    </Routes>;
 
     const handleLoginData = (data) => {
         setLoginData(data);
-        //console.log('Received login data:', data);
-        console.log('Received login data:', loginData);
-
-        // setTimeout(() => {
-        //     setCurrentUser(true);
-        // }, 6000);
     };
 
     let items = currentUser ? userMenu : MENU_ITEMS;
 
     // const [profile, setProfile] = useState[false];
 
+    <Routes>
+        <Route path="/profile67" element={<Profile dataImage={loginData} />} />
+    </Routes>;
     const navigate = useNavigate();
+    const sendData = () => {
+        parentCallback(loginData.data);
+    };
+
     const handleClickImage = () => {
         console.log('hehe bị ngu rồi');
-        console.log(loginData);
-        // navigate('/profile67');
+        console.log(loginData.data);
+        sendData();
         navigate('/profile67', { state: { data: loginData.data } });
-
         return <Link to="/profile67"></Link>;
     };
 
@@ -366,7 +363,7 @@ function Header({ toggleSwitchPageContent }) {
                         Switch
                     </Button> */}
 
-                    <LogoutContext.Provider value={{ handleLogout, handleClickImage }}>
+                    <LogoutContext.Provider value={{ handleLogout, handleClickImage, toggleSwitchPage, loginData }}>
                         <Menu
                             items={items}
                             // onChange={handleMenuChange}
@@ -382,10 +379,10 @@ function Header({ toggleSwitchPageContent }) {
                                 // <ProfileContext.Provider>
                                 <Image
                                     className5={cx('user-avatar')}
-                                    fallBack1="https://1.bp.blogspot.com/-uSNd2HxD-jQ/V95VOtKD-NI/AAAAAAAAGAg/dtIlfYKiuNIWaoXzs2DBhKvDDGTc33U7gCEw/s1600/11.%2BRenge%2B%2528Non%2Bnon%2Bbiyori%2529%2BTopTenHazy%2BTop%2B15%2Bnh%25C3%25A2n%2Bv%25E1%25BA%25ADt%2Bloli%2B%25C4%2591%25E1%25BA%25B7c%2Bs%25E1%25BA%25AFc%2Bnh%25E1%25BA%25A5t%2Btrong%2Banime.jpg"
+                                    // fallBack1="https://1.bp.blogspot.com/-uSNd2HxD-jQ/V95VOtKD-NI/AAAAAAAAGAg/dtIlfYKiuNIWaoXzs2DBhKvDDGTc33U7gCEw/s1600/11.%2BRenge%2B%2528Non%2Bnon%2Bbiyori%2529%2BTopTenHazy%2BTop%2B15%2Bnh%25C3%25A2n%2Bv%25E1%25BA%25ADt%2Bloli%2B%25C4%2591%25E1%25BA%25B7c%2Bs%25E1%25BA%25AFc%2Bnh%25E1%25BA%25A5t%2Btrong%2Banime.jpg"
                                     alt={loginData.data.nickname}
                                     src={loginData.data.avatar}
-                                    onClickImage={handleClickImage}
+                                    // onClickImage={() => handleClickImage()}
                                 />
                             ) : (
                                 // </ProfileContext.Provider>
