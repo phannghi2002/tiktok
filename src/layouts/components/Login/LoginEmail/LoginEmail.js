@@ -98,7 +98,10 @@ function LoginEmail({ onClickBack, onLoginData }) {
                     </span>
                 )}
 
-                <button className={cx('login', { active: isFormValid })} disabled={!isFormValid} onClick={handleSubmit}>
+                {/* <button className={cx('login', { active: isFormValid })} disabled={!isFormValid} onClick={handleSubmit}>
+                    Đăng nhập
+                </button> */}
+                <button className={cx('login', { active: isFormValid })} onClick={handleSubmit}>
                     Đăng nhập
                 </button>
             </div>

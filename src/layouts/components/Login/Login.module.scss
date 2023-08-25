@@ -45,11 +45,15 @@
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    background: rgb(255, 255, 255);
+    background: var(--optionLoginColor);
 
     & + & {
         margin-top: 16px;
     }
+}
+
+.option_active {
+    color: var(--textColor);
 }
 .icon_qr {
     width: 20px;
@@ -74,7 +78,7 @@
 .policy_confirm {
     width: 375px;
     padding: 16px 30px;
-    color: rgba(22, 24, 35, 0.5);
+    color: var(--policyCofirmColor);
     font-size: 12px;
     line-height: 15px;
     text-align: center;

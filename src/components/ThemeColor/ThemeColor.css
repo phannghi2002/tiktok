@@ -1,0 +1,59 @@
+:root {
+    --backgroundColor: #fff;
+    --textColor: #161823;
+    --headerColor: #fff;
+    --elementLinkA: #000;
+    --searchColor: rgba(22, 24, 35, 0.06);
+    --searchClearColor: rgba(22, 24, 35, 0.5);
+    --loginModalColor: #fff;
+    --lineColor: rgba(22, 24, 35, 0.34);
+    --borderLineColor: #e5e5e5;
+    --titleProfileColor: rgb(22, 24, 35);
+    --descriptionProfileColor: rgb(22, 24, 35, 0.75);
+    --scrollBarColor: rgba(22, 24, 35, 0.06);
+    --optionLoginColor: #fff;
+    --policyCofirmColor: #b7b7ce;
+    --loginEmailDescriptionColor: rgb(22, 24, 35);
+    --placeholderColor: #818182;
+    --linkEmailColor: #919297;
+    --searchBtnBgHoverColor: #d1d4e2;
+    --loginBtnBgColor: #f1f1f2;
+    --loginBtnColor: rgba(22, 24, 35, 0.44);
+    --tippyBgColor: #fff;
+    --hoverBgColor: rgba(22, 24, 35, 0.03);
+    --searchAccountColor: rgba(22, 24, 35, 0.5);
+    --accounItemUserNameColor: rgba(22, 24, 35, 0.5);
+    --videoItemQuantifyColor: rgba(22, 24, 35, 0.75);
+}
+
+[data-theme='dark']:root {
+    --backgroundColor: #000;
+    --textColor: #fff;
+    --headerColor: #000;
+    --elementLinkA: #fff;
+    --searchColor: #2f2f2f;
+    --searchClearColor: #767676;
+    --loginModalColor: #252525;
+    --lineColor: #9d9d9d;
+    --borderLineColor: rgb(165, 156, 156);
+    --titleProfileColor: #fff;
+    --descriptionProfileColor: #ffffffbf;
+    --scrollBarColor: #3f3f3f;
+    --optionLoginColor: #4a4a4a;
+    --policyCofirmColor: #838383;
+    --loginEmailDescriptionColor: #ffff;
+    --placeholderColor: #bdbcb2;
+    --linkEmailColor: #b9c6c8;
+    --searchBtnBgHoverColor: #3f3f42;
+    --loginBtnBgColor: #4a4a4a;
+    --loginBtnColor: #bdbcb2;
+    --tippyBgColor: #2f2f2f;
+    --hoverBgColor: rgba(153, 154, 163, 0.247);
+    --searchAccountColor: #767676;
+    --accounItemUserNameColor: #767676;
+    --videoItemQuantifyColor: #ffffffbf;
+}
+
+strong {
+    color: var(--textColor);
+}

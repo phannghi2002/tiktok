@@ -67,9 +67,11 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
     return (
         <Tippy
             interactive
+            //visible
             delay={[0, 800]}
             offset={[12, 8]}
             hideOnClick={hideOnClick}
+            // hideOnClick={false}
             placement="bottom-end"
             render={renderResult}
             onHide={handleResetMenu} //Khi ẩn thì sẽ đưa về trang nhất của trang Menu

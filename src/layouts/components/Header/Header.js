@@ -12,6 +12,8 @@ import {
     faSignOut,
     faMoon,
     faClose,
+    faToggleOff,
+    faToggleOn,
 } from '@fortawesome/free-solid-svg-icons';
 //Lỗi thư viện này sẽ giúp ta hover 1 lần và hiển thị mãi mãi luôn
 import Tippy from '@tippyjs/react';
@@ -19,10 +21,10 @@ import 'tippy.js/dist/tippy.css';
 
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
-import images from '~/assets/images';
+// import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
-import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import { InboxIcon, MessageIcon, UploadIcon, LogoTikTok } from '~/components/Icons';
 import Search from '../Search';
 import config from '~/config';
 import { useState, createContext } from 'react';
@@ -37,7 +39,7 @@ const cx = classNames.bind(styles);
 
 export const SwitchPageContext = createContext();
 export const LogoutContext = createContext();
-// export const ProfileContext = createContext();
+// export const ThemeContext = createContext();
 
 const MENU_ITEMS = [
     {
@@ -178,6 +180,12 @@ const MENU_ITEMS = [
         icon: <FontAwesomeIcon icon={faKeyboard} />,
         title: 'Keyboard shortcuts',
     },
+    {
+        icon: <FontAwesomeIcon icon={faMoon} />,
+        title: 'Dark mode',
+        iconOff: <FontAwesomeIcon icon={faToggleOff} />,
+        iconOn: <FontAwesomeIcon icon={faToggleOn} />,
+    },
 ];
 
 function Header({ toggleSwitchPageContent, toggleSwitchPage, parentCallback }) {
@@ -226,16 +234,12 @@ function Header({ toggleSwitchPageContent, toggleSwitchPage, parentCallback }) {
             title: 'Settings',
         },
         ...MENU_ITEMS,
-        {
-            icon: <FontAwesomeIcon icon={faMoon} />,
-            title: 'Dark mode',
-        },
+
         {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log out',
             to: '/logout',
             separate: true,
-            // onClick2: handleLogout,
         },
     ];
 
@@ -281,11 +285,20 @@ function Header({ toggleSwitchPageContent, toggleSwitchPage, parentCallback }) {
         return <Link to="/profile67"></Link>;
     };
 
+    // const [theme, setTheme] = useState(false);
+
+    // const toggleDarkMode = () => {
+    //     setTheme(!theme);
+    //     const htmlElement = document.querySelector('body');
+    //     htmlElement.style.backgroundColor = !theme ? 'black' : 'white';
+    //     htmlElement.style.color = !theme ? 'white' : 'black';
+    // };
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <Link to={config.routes.home} className={cx('logo-link')} onClick={toggleSwitchPageContent}>
-                    <img src={images.logo.default} alt="TikTok" />
+                    <LogoTikTok />
                 </Link>
                 {/* console.log(images.logo) để biết nó in ra cái gì còn làm việc */}
 
@@ -363,7 +376,14 @@ function Header({ toggleSwitchPageContent, toggleSwitchPage, parentCallback }) {
                         Switch
                     </Button> */}
 
-                    <LogoutContext.Provider value={{ handleLogout, handleClickImage, toggleSwitchPage, loginData }}>
+                    <LogoutContext.Provider
+                        value={{
+                            handleLogout,
+                            handleClickImage,
+                            toggleSwitchPage,
+                            loginData,
+                        }}
+                    >
                         <Menu
                             items={items}
                             // onChange={handleMenuChange}

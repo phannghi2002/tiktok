@@ -17,6 +17,7 @@ import {
     faVolumeHigh,
     faVolumeLow,
 } from '@fortawesome/free-solid-svg-icons';
+
 const cx = classNames.bind(styles);
 
 function VideoItem({ video }) {
@@ -35,28 +36,55 @@ function VideoItem({ video }) {
     const videoRef = useRef(null);
     const inputRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
-    const [videoRect, setVideoRect] = useState();
+    // const [videoRect, setVideoRect] = useState();
     const [isPlay, setIsPlay] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const rect = videoRef.current.getBoundingClientRect();
-            setIsVisible(rect.top < window.innerHeight && rect.bottom >= 0);
-            setVideoRect(rect);
-
-            //Khi video đang phát thì set lại nó để cập nhật icon
-            !videoRef.current.paused ? setIsPlay(false) : setIsPlay(true);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [videoRef]);
-
     const [isPlaying, setIsPlaying] = useState(false);
     const [isVideoError, setIsVideoError] = useState(false);
 
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         const rect = videoRef.current.getBoundingClientRect();
+    //         setIsVisible(rect.top < window.innerHeight && rect.bottom >= 0);
+    //         setVideoRect(rect);
+
+    //         //Khi video đang phát thì set lại nó để cập nhật icon
+    //         !videoRef.current.paused ? setIsPlay(false) : setIsPlay(true);
+    //     };
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => window.removeEventListener('scroll', handleScroll);
+    // }, [videoRef]);
+
+    // useEffect(() => {
+    //     if (!isPlaying && isVisible && videoRect) {
+    //         if (videoRect.top > 50 && videoRect.bottom < window.innerHeight + 100) {
+    //             videoRef.current.play().catch((error) => {
+    //                 // Handle play error
+    //                 setIsVideoError(true);
+    //                 console.error('Failed to play video:', error);
+    //             });
+    //         } else {
+    //             videoRef.current.pause();
+    //         }
+    //     }
+    // }, [isPlaying, isVisible, videoRect]);
+
+    console.log('fix thế này được chưa');
+
     useEffect(() => {
-        if (!isPlaying && isVisible && videoRect) {
-            if (videoRect.top > 50 && videoRect.bottom < window.innerHeight + 100) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+                setIsVisible(entry.isIntersecting >= 0.8);
+            },
+            { threshold: 0.8 },
+        );
+        observer.observe(videoRef.current);
+
+        if (isVisible && videoRef.current) {
+            setIsPlaying(true);
+            setIsPlay(false);
+            videoRef.current.play();
+            if (!isPlaying) {
                 videoRef.current.play().catch((error) => {
                     // Handle play error
                     setIsVideoError(true);
@@ -65,8 +93,14 @@ function VideoItem({ video }) {
             } else {
                 videoRef.current.pause();
             }
+        } else if (!isVisible && videoRef.current) {
+            setIsPlaying(false);
+            setIsPlay(true);
+
+            videoRef.current.pause();
         }
-    }, [isPlaying, isVisible, videoRect]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isVisible, isVideoError]);
 
     // const [time, setTime] = useState('');
 

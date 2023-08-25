@@ -1,5 +1,5 @@
 .wrapper {
-    border-top: #e3e3e4 1px solid;
+    border-top: var(--searchColor) 2px solid;
 }
 
 .label {
@@ -48,5 +48,5 @@
 }
 .name {
     font-size: 1.2rem;
-    opacity: #161823bf;
+    color: var(--accounItemUserNameColor);
 }

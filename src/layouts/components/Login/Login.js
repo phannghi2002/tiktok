@@ -35,7 +35,7 @@ function Login({ onLoginData }) {
                                 <span> Sử dụng mã QR</span>
                             </button>
 
-                            <button className={cx('option_button')}>
+                            <button className={cx('option_button', 'option_active')}>
                                 <span className={cx('icon_qr')}>
                                     <FontAwesomeIcon icon={faUser} />
                                 </span>

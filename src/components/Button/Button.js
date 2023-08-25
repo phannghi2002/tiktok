@@ -7,6 +7,8 @@ import { memo } from 'react';
 import { useContext } from 'react';
 import { LogoutContext } from '~/layouts/components/Header';
 
+// import { ThemeContext } from '~/components/ThemeColor';
+
 const cx = classNames.bind(styles);
 
 function Button({
@@ -26,12 +28,14 @@ function Button({
     rightIcon,
     onClick,
     // onClick2,
+
     ...passProps
 }) {
     let Comp = 'button';
 
     const props = {
         onClick,
+
         ...passProps,
     };
 
@@ -62,27 +66,32 @@ function Button({
     });
 
     const logout = useContext(LogoutContext);
-    // console.log(logout);
 
     const handleClick = () => {
-        if (children === 'Log out') logout.handleLogout();
-        else if (children === 'View profile') {
-            logout.handleClickImage();
-            logout.toggleSwitchPage();
-            console.log('ngu l');
+        // if (children.props.children === 'Log out') {
+        //     logout.handleLogout();
+        //     console.log('bo me');
+        // } else if (children.props.children === 'View profile') {
+        //     logout.handleClickImage();
+        //     logout.toggleSwitchPage();
+        //     console.log('ngu l');
+        // }
+        // console.log(children.props);
+        if (children.props) {
+            if (children.props.children[0] === 'Log out') {
+                logout.handleLogout();
+            } else if (children.props.children[0] === 'View profile') {
+                logout.handleClickImage();
+                logout.toggleSwitchPage();
+            }
         }
     };
 
     return (
         <Comp className={classes} {...props}>
             {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
-            {/* toán tử && xem lại trong JS  */}
-            <span
-                className={cx('title')}
-                // onClick={children === 'Log out' ? logout.handleLogout : () => {}}
 
-                onClick={handleClick}
-            >
+            <span className={cx('title')} onClick={handleClick}>
                 {children}
             </span>
             {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}

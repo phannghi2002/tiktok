@@ -185,7 +185,7 @@
     font-size: 24px;
     line-height: 30px;
     font-weight: 700;
-    color: rgb(22, 24, 35);
+    color: var(--titleProfileColor);
     margin-top: 24px;
 }
 
@@ -194,6 +194,6 @@
     line-height: 21px;
     letter-spacing: 0.03px;
     font-weight: 400;
-    color: rgba(22, 24, 35, 0.75);
+    color: var(--descriptionProfileColor);
     margin-top: 8px;
 }
